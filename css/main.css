@@ -5,6 +5,22 @@
     height: 700px;
     margin: 0 auto;
 }
+
+.header h1 {
+    position: absolute;
+    width: 437px;
+    height: 71px;
+    left: 27px;
+    top: 20px;
+}
+
+.header h3 {
+    position: absolute;
+    width: 131px;
+    height: 38px;
+    left: 527px;
+    top: 44px;
+}
 .letter-storage {
     background-color: white;
     position: absolute;
@@ -28,6 +44,30 @@
 .buttons {
     background-color: white;
 
+}
+
+.new-game {
+    position: absolute;
+    width: 109px;
+    height: 58px;
+    left: 49px;
+    top: 523px;
+}
+
+.reset-play-area {
+    position: absolute;
+    width: 109px;
+    height: 58px;
+    left: 206px;
+    top: 523px;
+}
+
+.hint {
+    position: absolute;
+    width: 110px;
+    height: 58px;
+    left: 122px;
+    top: 608px;
 }
 
 .play-area {
