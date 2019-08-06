@@ -12,6 +12,12 @@
     height: 71px;
     left: 27px;
     top: 20px;
+    font-family: 'Ribeye', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 60px;
+    line-height: 44px;
+    color: #BB6565;
 }
 
 .header h3 {
