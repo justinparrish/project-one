@@ -2,5 +2,40 @@
     position: absolute;
     background-color: #CCC9EC;
     width: 100%;
-    height: 600px;
+    height: 700px;
+    margin: 0 auto;
+}
+.letter-storage {
+    background-color: white;
+    position: absolute;
+    width: 253px;
+    height: 456px;
+    left: 765px;
+    top: 44px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.game-display {
+    background-color: white;
+    position: absolute;
+    width: 629px;
+    height: 386px;
+    left: 49px;
+    top: 114px;
+    filter: blur(4px)
+}
+
+.buttons {
+    background-color: white;
+
+}
+
+.play-area {
+    background-color: white;
+    position: absolute;
+    width: 739px;
+    height: 160px;
+    left: 363px;
+    top: 523px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
