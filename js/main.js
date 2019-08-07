@@ -1,26 +1,32 @@
 console.log('Please Save The Dog!')
 //create object of letters, words, and hints for words
+let letters = [];
 const hangmanInfo = {
     // add alphabet(come up with an easier to list them)
     //use charCode()
-    letter: String.fromCharCode(66),
+    letter: ['A', 'B', 'C', 'D', 'E', 'F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
     words: ['Friday', 'Step Brothers', 'Pulp Fiction'],
     hints: ['"Playing with my money... is like playing with my emotions"', '"Did you rub your balls on my drums."',
-        "Aw, man, I shot Marvin in the face..."],
+        "Aw, man, I shot Marvin in the face..."]
 
 
 
 }
 console.log(hangmanInfo.hints[1])
-console.log(letter)
+console.log(hangmanInfo.letter)
+
 //create 26 divs to add to letter storage
-//1. create 26 divs and add letter to them
-for (let i = 0; i <= 26; i++) {
-    let letterDiv = $('<div></div>')
-    //2. add the divs to the letter storage
-    $('.letter-storage').append(letterDiv)
-    $(letterDiv).addClass('alpha')
-}
+//1. create 26 divs
+$(document).ready(function () {
+    let storage = $('<div class="letters"></div>').text('a');
+    for (let i = 0; i < hangmanInfo.letter.length.valueOf([i]); i++) {
+        storage = $('<div class="letters"></div>').text([i]);
+        $('.letter-storage').append(storage);
+    }
+});
+
+
+
 
 
 
