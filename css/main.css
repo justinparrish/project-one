@@ -49,7 +49,9 @@
 }
 
 .game-display {
-    background-image: url('/Users/justin_parrish/project-1/css/roads.png');
+    background-image: url('../images/roads.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: white;
     position: absolute;
     width: 629px;
@@ -62,7 +64,7 @@
 .car {
     position: absolute;
     left: 435px;
-    top: 205px;
+    top: 150px;
     font-size: 144px;
     /* line-height: 197px; */
 }
@@ -70,7 +72,7 @@
 .dog {
     position: absolute;
     left: 140px;
-    top: 367px;
+    top: 300px;
     font-size: 63px;
 }
 
