@@ -19,9 +19,9 @@ console.log(hangmanInfo.letter)
 //1. create 26 divs
 $(document).ready(function () {
     let storage = $('<div class="letters"></div>').text('a');
-    for (let i = 0; i < hangmanInfo.letter.length.valueOf([i]); i++) {
+    for (let i = 0; i < hangmanInfo.letter.length; i++) {
         storage = $('<div class="letters"></div>').text([i]);
-        $('.letter-storage').append(storage);
+        $('.letter-box').append(storage);
     }
 });
 
