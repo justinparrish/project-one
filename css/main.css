@@ -1,17 +1,22 @@
 #container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
     position: absolute;
     background-color: #CCC9EC;
     width: 100%;
     height: 700px;
     margin: 0 auto;
+    
 }
 
 .header h1 {
-    position: absolute;
+    /* position: absolute; */
     width: 437px;
     height: 71px;
-    /* left: 27px;
-    top: 20px; */
+    left: 27px;
+    top: 20px; 
     font-family: 'Ribeye', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -21,7 +26,7 @@
 }
 
 .header h3 {
-    position: absolute;
+    /* position: absolute; */
     width: 131px;
     height: 38px;
     /* left: 527px;
@@ -29,7 +34,7 @@
 }
 .letter-storage {
     background-color: white;
-    position: absolute;
+    /* position: absolute; */
     width: 253px;
     height: 456px;
     /* left: 765px;
@@ -39,7 +44,7 @@
 
 .game-display {
     background-color: white;
-    position: absolute;
+    /* position: absolute; */
     width: 629px;
     height: 386px;
     /* left: 49px;
@@ -53,7 +58,7 @@
 }
 
 .new-game {
-    position: absolute;
+    /* position: absolute; */
     width: 109px;
     height: 58px;
     /* left: 49px;
@@ -61,7 +66,7 @@
 }
 
 .reset-play-area {
-    position: absolute;
+    /* position: absolute; */
     width: 109px;
     height: 58px;
     /* left: 206px;
@@ -69,7 +74,7 @@
 }
 
 .hint {
-    position: absolute;
+    /* position: absolute; */
     width: 110px;
     height: 58px;
     /* left: 122px;
@@ -78,7 +83,7 @@
 
 .play-area {
     background-color: white;
-    position: absolute;
+    /* position: absolute; */
     width: 739px;
     height: 160px;
     /* left: 363px;
