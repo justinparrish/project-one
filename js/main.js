@@ -30,15 +30,20 @@ $(document).ready(function() {
 //on click of new game button
 $('.new-game').on('click', function newGame() {
     event.preventDefault()
-    //1. randomize hints
+    //1. randomize hints/and words
     let start = hangmanInfo.hints[Math.floor(Math.random() * hangmanInfo.hints.length)];
-
-    console.log(start);
+    let answer = hangmanInfo.words[Math.floor(Math.random() * hangmanInfo.words.length)];
+    
+    console.log(start, answer);
+    
+    
     //2. once hint is randomized place it inside of hint-display div
     $('.hint-text').text(start);
-
-    
+   
+      
 })
+
+
 
 //on click of letter move it to the play-area div
 function clickLetter() {
