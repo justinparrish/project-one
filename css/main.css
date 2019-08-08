@@ -2,10 +2,7 @@ body {
     background-color: #CCC9EC;
 }
 #container {
-    /* display: flex;
-    justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap; */
+    font-family: 'Ribeye', sans-serif;
     position: absolute;
     left: 115px;
     background-color: #CCC9EC;
@@ -42,7 +39,7 @@ body {
     top: 44px;
 }
 .letter-storage {
-    background-color: white;
+    background-color: #ffffff;
     position: absolute;
     width: 253px;
     height: 456px;
@@ -63,19 +60,19 @@ body {
 }
 
 .letters {
-    background-color: #BB6565;
+    /* background-color: #BB6565; */
     display: inline-block;
     width: 80px;
     padding-top: 10px;
-    padding-bottom: 10px 
-
+    padding-bottom: 10px; 
+    font-size: 22px;
 
 }
 .game-display {
     background-image: url('../images/roads.png');
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: white;
+    background-color: #ffffff;
     position: absolute;
     width: 629px;
     height: 386px;
@@ -126,11 +123,21 @@ body {
 }
 
 .play-area {
-    background-color: white;
+    background-color: #ffffff;
     position: absolute;
     width: 739px;
     height: 160px;
     left: 363px;
     top: 523px;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.new-game, .reset-play-area, .hint {
+    font-family: 'Ribeye', sans-serif;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #f5f5f5;
+}
+
+.new-game:hover, .reset-play-area:hover, .hint:hover {
+    background: #afbcf7
 }
