@@ -5,9 +5,8 @@ const hangmanInfo = {
     // add alphabet(come up with an easier to list them)
     //use charCode()
     letter: ['A', 'B', 'C', 'D', 'E', 'F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
-    words: ['Friday', 'Step Brothers', 'Pulp Fiction'],
-    hints: ['"Playing with my money... is like playing with my emotions"', '"Did you rub your balls on my drums."',
-        "Aw, man, I shot Marvin in the face..."]
+    words: ['Friday', 'Step Brothers', 'Pulp Fiction', 'Superbad','Rocky','Scarface', 'Rush Hour'],
+    hints: ['"Playing with my money... is like playing with my emotions"', '"Did you rub your balls on my drums."','"Aw, man, I shot Marvin in the face..."','"I am McLovin"','"Where did you get the name,"The Italian Stallion"?"','"SAY HELLO TO MY LITTLE FRIEND!!"', '"Don\'t you ever touch a black man\'s radio, boy! You can do that in China but you can get your ass killed out here, man."']
 
 
 
