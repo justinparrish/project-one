@@ -17,19 +17,18 @@ console.log(hangmanInfo.letter)
 //create 26 divs to add to letter storage
 //1. create 26 divs
 $(document).ready(function() {
-    let storage = $('<div class="letters"></div>').text('');
+    let storage = $('<button class="letters"></button>').text('');
     //2. iterate through array
     for (let i = 0; i < hangmanInfo.letter.length; i++) {
         //3. add letters of array into empty divs
-        storage = $('<div class="letters"></div>').text(hangmanInfo.letter[i].valueOf());
+        storage = $('<button class="letters"></button>').text(hangmanInfo.letter[i].valueOf());
         $('.letter-box').append(storage);
     }
 });
 
 
 //on click of new game button
-$('.new-game').on('click', newGame())
-function newGame() {
+$('.new-game').on('click', function newGame() {
     //1. randomize hints
     let start = hangmanInfo.hints[Math.floor(Math.random() * hangmanInfo.hints.length)];
 
@@ -38,7 +37,7 @@ function newGame() {
     $('.hint-text').append(start);
     
     
-}
+})
 
 //on click of letter move it to the play-area div
 function clickLetter() {
@@ -46,14 +45,15 @@ function clickLetter() {
 
     
 }
-
+//on click of reset-play-area button
 function resetGameButton() {
     let reset = $('.reset-play-area');
 
-}
 
+}
+//hint button on click function
 $('.hint').on('click', function hintbutton() {
-  swal('Think hard about movies in the 80s, 90s, and 2000s')  
+    swal('Think hard about movies in the 80s, 90s, and 2000s')  
     
 })
 
@@ -66,10 +66,4 @@ function winOrLose() {
 
 
 
-
-//create input inside of play area
-
-
-
-//create function to be able to drag letter to solve a word
 
