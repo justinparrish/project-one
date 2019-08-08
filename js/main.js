@@ -12,7 +12,7 @@ const hangmanInfo = {
 console.log(hangmanInfo.hints)
 console.log(hangmanInfo.letter)
 
-$('.new-game').on('click', newGame())
+
 
 //create 26 divs to add to letter storage
 //1. create 26 divs
@@ -28,6 +28,7 @@ $(document).ready(function() {
 
 
 //on click of new game button
+$('.new-game').on('click', newGame())
 function newGame() {
     //1. randomize hints
     let start = hangmanInfo.hints[Math.floor(Math.random() * hangmanInfo.hints.length)];
@@ -35,10 +36,14 @@ function newGame() {
     console.log(start)
     //2. once hint is randomized place it inside of hint-display div
     $('.hint-text').append(start);
-
+    
+    
 }
 
+//on click of letter move it to the play-area div
 function clickLetter() {
+    let answer = []
+
     
 }
 
@@ -47,10 +52,10 @@ function resetGameButton() {
 
 }
 
-function hintbutton() {
-    let hint = $('.hint');
+$('.hint').on('click', function hintbutton() {
+  swal('Think hard about movies in the 80s, 90s, and 2000s')  
     
-}
+})
 
 function winOrLose() {
 
