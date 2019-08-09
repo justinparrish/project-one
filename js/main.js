@@ -38,14 +38,17 @@ $('.hint-text').text(start.hint)
 
 let luckyGuess = []
 let hintAnswer = $('.placement').text(start.answer)
+
 let winScore = Number.parseInt($('.win-score').text())
 let loseScore = Number.parseInt($('.lose-score').text())
-
+let alphaKeys = $('.letters')
 
 console.log(Number.parseInt($('.win-score').text()))
 console.log(Number.parseInt($('.lose-score').text()))
 
 
+
+// for(let i = 0, i < Object.keys())
 
 
 //create 26 divs to add to letter storage
@@ -59,8 +62,8 @@ $(document).ready(function() {
 
 //hint button on click function
 $('.hint').on('click', function hintbutton() {
-    timeOut(swal('Think hard about movies in the 80s, 90s, and 2000s'));  
-    
+    (swal('Think hard about movies in the 80s, 90s, and 2000s'));  
+    console.log($('.letters:nth-child(3)').text())
 });
 
 //on click of new game button
@@ -92,7 +95,7 @@ function winOrLose() {
     }    
 
 }
+$('.letter').on('click', function selectLetter() {
+    alert('clicked')
+})
 
-function gamePlay() {
-
-}
