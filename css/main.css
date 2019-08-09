@@ -164,5 +164,6 @@ body {
     font-size: 60px;
     text-align: center;
     line-height: 3em;
-    color: white;
+    color: black;
+    visibility: hidden;
 }

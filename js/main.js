@@ -32,6 +32,21 @@ const hangmanInfo = [
     },
 ];
 
+let start = hangmanInfo[Math.floor(Math.random() * hangmanInfo.length)]
+$('.hint-text').text(start.hint)
+
+
+let luckyGuess = []
+let hintAnswer = $('.placement').text(start.answer)
+let winScore = Number.parseInt($('.win-score').text())
+let loseScore = Number.parseInt($('.lose-score').text())
+
+
+console.log(Number.parseInt($('.win-score').text()))
+console.log(Number.parseInt($('.lose-score').text()))
+
+
+
 
 //create 26 divs to add to letter storage
 $(document).ready(function() {
@@ -42,6 +57,12 @@ $(document).ready(function() {
     }
 });
 
+//hint button on click function
+$('.hint').on('click', function hintbutton() {
+    timeOut(swal('Think hard about movies in the 80s, 90s, and 2000s'));  
+    
+});
+
 //on click of new game button
 $('.new-game').on('click', function newGame() {
     event.preventDefault()
@@ -50,49 +71,28 @@ $('.new-game').on('click', function newGame() {
     console.log(start);
    
     
-    //2. once hint is randomized place it inside of hint-display div
+    //once hint is randomized place it inside of hint-display div
     $('.hint-text').text(start.hint)
     $('.placement').text(start.answer)
 })
 
-//on click of letter move it to the play-area div
-function clickLetter() {
-    let letters = $('.letters')
-    //if letter is selected add it to the answer in placement
-    if()
-
-    
-}
-//on click of reset-play-area button
-function resetGameButton() {
-    //turns selected letters white
-    let reset = $('.placement');
-
-
-}
 
 //determine if player won or lose depending on letters and length
 function winOrLose() {
-    //if user has correct answer
-    if() {
+        //if user has correct answer
+    if( hintAnswer == luckyGuess){
         //add 1 point for win
+        winScore + 1;
+        swal('Congratulations!! You Won!!');
     }
     else {
         //add 1 point to loss
-    }
+        loseScore + 1;
+        swal('Awww you lose🙁...Better Luck Next Time');
+    }    
+
 }
 
+function gamePlay() {
 
-
-
-//hint button on click function
-$('.hint').on('click', function hintbutton() {
-    swal('Think hard about movies in the 80s, 90s, and 2000s');  
-    
-})
-
-
-
-
-
-
+}
