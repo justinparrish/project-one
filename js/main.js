@@ -38,7 +38,7 @@ $('.hint-text').text(start.hint)
 console.log(start.answer.length)
 let luckyGuess = []
 let hintAnswer = $('.placement').text(start.answer)
-
+let lives = 6
 let winScore = Number.parseInt($('.win-score').text())
 let loseScore = Number.parseInt($('.lose-score').text())
 let alphaKeys = $('.letters')
@@ -53,17 +53,24 @@ for(let i = 0; i < start.answer.length; i++) {
 let remainingLetters = start.answer.length;
 
 
-// for(let i = 0, i < Object.keys())
+// while(remainingLetters > 0) {
 
+    
+// }
+
+console.log(letter[0].valueOf())
+console.log(hangmanInfo[0].hint.valueOf())
 
 //create 26 divs to add to letter storage
-$(document).ready(function() {
-    // let storage = $('<button class="letters"></button>').text('');
-    for (let i = 0; i < letter.length; i++) {
-        storage = $('<button class="letters"></button>').text(letter[i].valueOf());
-        $('.letter-box').append(storage);
-    }
-});
+// let storage = $('<button class="letters"></button>').text('');
+for (let i = 0; i < letter.length; i++) {
+    storage = $('<button class="letters"></button>').text(letter[i].valueOf());
+    $('.letter-box').append(storage);
+}
+
+$('.letters').on('click', function clickedLetter() {
+    swal('letter clicked')
+})
 
 //hint button on click function
 $('.hint').on('click', function hintbutton() {
@@ -94,11 +101,11 @@ function winOrLose() {
         winScore + 1;
         swal('Congratulations!! You Won!!');
     }
-    else {
+    else if(luckyGuess > 6){
         //add 1 point to loss
         loseScore + 1;
         swal('Awww you lose🙁...Better Luck Next Time');
-    }    
+    }     
 
 }
 
