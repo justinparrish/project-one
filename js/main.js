@@ -35,7 +35,7 @@ const hangmanInfo = [
 let start = hangmanInfo[Math.floor(Math.random() * hangmanInfo.length)]
 $('.hint-text').text(start.hint)
 
-
+console.log(start.answer.length)
 let luckyGuess = []
 let hintAnswer = $('.placement').text(start.answer)
 
@@ -47,13 +47,18 @@ console.log(Number.parseInt($('.win-score').text()))
 console.log(Number.parseInt($('.lose-score').text()))
 
 
+for(let i = 0; i < start.answer.length; i++) {
+    luckyGuess[i] = '_';
+}
+let remainingLetters = start.answer.length;
+
 
 // for(let i = 0, i < Object.keys())
 
 
 //create 26 divs to add to letter storage
 $(document).ready(function() {
-    let storage = $('<button class="letters"></button>').text('');
+    // let storage = $('<button class="letters"></button>').text('');
     for (let i = 0; i < letter.length; i++) {
         storage = $('<button class="letters"></button>').text(letter[i].valueOf());
         $('.letter-box').append(storage);
@@ -80,6 +85,7 @@ $('.new-game').on('click', function newGame() {
 })
 
 
+
 //determine if player won or lose depending on letters and length
 function winOrLose() {
         //if user has correct answer
@@ -95,7 +101,10 @@ function winOrLose() {
     }    
 
 }
-$('.letter').on('click', function selectLetter() {
-    alert('clicked')
-})
+
+
+
+
+
+
 

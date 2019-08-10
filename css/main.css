@@ -61,7 +61,7 @@ body {
 
 .letters {
     /* background-color: #BB6565; */
-    display: inline-table;
+    display: inline-block;
     width: 80px;
     padding-top: 10px;
     padding-bottom: 10px; 
