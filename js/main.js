@@ -59,20 +59,7 @@ for (let i = 0; i < letter.length; i++) {
 }
 
 $('.letters').on('click', function clickLetter() {
-    let alpha = $('.letters').html();
-    this.onclick = null;
-    for (let i = 0; i < start.answer.length; i++) {
-        if(start.answer[i] === alpha) {
-            luckyGuess[i].html() = alpha;
-            counter += 1;
-        }
-    }
-    let j = (start.answer.indexOf(alpha));
-    if(j === -1) {
-        lives -= 1;
-        winOrLose();
-        carMoves();
-    }
+    swal('button work')
 })
 
 
