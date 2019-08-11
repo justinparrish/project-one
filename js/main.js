@@ -1,18 +1,18 @@
 console.log('Please Save The Dog!')
 //create variables letters, words, and hints for words
-let letter = ['A', 'B', 'C', 'D', 'E', 'F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+let letter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 const hangmanInfo = [
     {
-        hint : '"Playing with my money... is like playing with my emotions"',
-        answer : 'FRIDAY'
+        hint: '"Playing with my money... is like playing with my emotions"',
+        answer: 'FRIDAY'
     },
     {
-        hint :'"Did you rub your balls on my drums."',
-        answer : 'STEP BROTHERS'
+        hint: '"Did you rub your balls on my drums."',
+        answer: 'STEP BROTHERS'
     },
     {
-        hint :'"Aw, man, I shot Marvin in the face..."',
-        answer :'PULP FICTION'
+        hint: '"Aw, man, I shot Marvin in the face..."',
+        answer: 'PULP FICTION'
     },
     {
         hint: '"I am McLovin"',
@@ -36,30 +36,20 @@ let start = hangmanInfo[Math.floor(Math.random() * hangmanInfo.length)]
 $('.hint-text').text(start.hint)
 
 console.log(start.answer.length)
-let luckyGuess = []
-let hintAnswer = $('.placement').text(start.answer)
-let lives = 6
-let winScore = Number.parseInt($('.win-score').text())
-let loseScore = Number.parseInt($('.lose-score').text())
-let alphaKeys = $('.letters')
-
-console.log(Number.parseInt($('.win-score').text()))
-console.log(Number.parseInt($('.lose-score').text()))
-
-
-for(let i = 0; i < start.answer.length; i++) {
-    luckyGuess[i] = '_';
-}
-let remainingLetters = start.answer.length;
+let luckyGuess = [];
+let hintAnswer = $('.placement').text(start.answer);
+let winScore = Number.parseFloat($('.win-score').text());
+let loseScore = Number.parseFloat($('.lose-score').text());
+let lives = Number.parseFloat($('.lives').text());
+let alphaKeys = $('.letters');
+let space;
+let counter;
 
 
-// while(remainingLetters > 0) {
+console.log(Number.parseFloat($('.win-score').text()));
+console.log(Number.parseFloat($('.lose-score').text()));
+console.log(Number.parseFloat($('.lives').text()));
 
-    
-// }
-
-console.log(letter[0].valueOf())
-console.log(hangmanInfo[0].hint.valueOf())
 
 //create 26 divs to add to letter storage
 // let storage = $('<button class="letters"></button>').text('');
@@ -68,50 +58,74 @@ for (let i = 0; i < letter.length; i++) {
     $('.letter-box').append(storage);
 }
 
-$('.letters').on('click', function clickedLetter() {
-    swal('letter clicked')
+$('.letters').on('click', function clickLetter() {
+    let alpha = $('.letters').html();
+    this.onclick = null;
+    for (let i = 0; i < start.answer.length; i++) {
+        if(start.answer[i] === alpha) {
+            luckyGuess[i].html() = alpha;
+            counter += 1;
+        }
+    }
+    let j = (start.answer.indexOf(alpha));
+    if(j === -1) {
+        lives -= 1;
+        winOrLose();
+        carMoves();
+    }
 })
 
-//hint button on click function
-$('.hint').on('click', function hintbutton() {
-    (swal('Think hard about movies in the 80s, 90s, and 2000s'));  
-    console.log($('.letters:nth-child(3)').text())
-});
 
-//on click of new game button
-$('.new-game').on('click', function newGame() {
-    event.preventDefault()
-    //randomize hints/and words
-    let start = hangmanInfo[Math.floor(Math.random() * hangmanInfo.length)];
-    console.log(start);
-   
-    
-    //once hint is randomized place it inside of hint-display div
-    $('.hint-text').text(start.hint)
-    $('.placement').text(start.answer)
-})
+$('.placement').append('<ul class="holder"></ul>')
+for (let i = 0; i < start.answer.length; i++) {
+    $('.holder').append('<li class="guess"></li>');
+    if(start.answer[i] === '-') {
+    $('.guess').text() == '-';
+    }
+    else{
+    $('.guess').text() == '_';
+    }
+luckyGuess.push($('.guess'))
+}
+
+
+// console.log(letter[0].valueOf())
+// console.log(hangmanInfo[0].hint.valueOf())
 
 
 
 //determine if player won or lose depending on letters and length
 function winOrLose() {
-        //if user has correct answer
-    if( hintAnswer == luckyGuess){
+    //if user has correct answer
+    if (hintAnswer == luckyGuess) {
         //add 1 point for win
-        winScore + 1;
+        winScore += 1;
         swal('Congratulations!! You Won!!');
     }
-    else if(luckyGuess > 6){
+    else if (luckyGuess > 6) {
         //add 1 point to loss
-        loseScore + 1;
+        loseScore += 1;
         swal('Awww you lose🙁...Better Luck Next Time');
-    }     
+    }
 
 }
 
+console.log('1' + start.answer.length.valueOf())
+
+//hint button on click function
+$('.hint').on('click', function hintbutton() {
+    (swal('Think hard about movies in the 80s, 90s, and 2000s'));
+});
 
 
-
-
+//on click of new game button
+$('.new-game').on('click', function newGame() {
+    //randomize hints and words
+    let start = hangmanInfo[Math.floor(Math.random() * hangmanInfo.length)];
+    // console.log(start);
+    //once hint is randomized place it inside of hint-display div
+    $('.hint-text').text(start.hint)
+    //$('.placement').html(start.answer)
+})
 
 
