@@ -42,21 +42,18 @@ let lives = 6
 let winScore = Number.parseInt($('.win-score').text())
 let loseScore = Number.parseInt($('.lose-score').text())
 let alphaKeys = $('.letters')
-
+let numberOfClicks = 0
 console.log(Number.parseInt($('.win-score').text()))
 console.log(Number.parseInt($('.lose-score').text()))
 
 
 for(let i = 0; i < start.answer.length; i++) {
-    luckyGuess[i] = '_';
-}
-let remainingLetters = start.answer.length;
-
-
-// while(remainingLetters > 0) {
-
+    start.answer[i] = '_';
     
-// }
+}
+
+
+
 
 console.log(letter[0].valueOf())
 console.log(hangmanInfo[0].hint.valueOf())
@@ -72,11 +69,7 @@ $('.letters').on('click', function clickedLetter() {
     swal('letter clicked')
 })
 
-//hint button on click function
-$('.hint').on('click', function hintbutton() {
-    (swal('Think hard about movies in the 80s, 90s, and 2000s'));  
-    console.log($('.letters:nth-child(3)').text())
-});
+
 
 //on click of new game button
 $('.new-game').on('click', function newGame() {
@@ -108,7 +101,10 @@ function winOrLose() {
     }     
 
 }
-
+//hint button on click function
+$('.hint').on('click', function hintbutton() {
+    (swal('Think hard about movies in the 80s, 90s, and 2000s'));  
+});
 
 
 
