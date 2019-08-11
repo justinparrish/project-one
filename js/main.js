@@ -37,7 +37,7 @@ $('.hint-text').text(start.hint)
 
 console.log(start.answer.length)
 let luckyGuess = [];
-let hintAnswer = $('.placement').text(start.answer);
+// let hintAnswer = $('.placement').text(start.answer);
 let winScore = Number.parseFloat($('.win-score').text());
 let loseScore = Number.parseFloat($('.lose-score').text());
 let lives = Number.parseFloat($('.lives').text());
@@ -58,44 +58,45 @@ for (let i = 0; i < letter.length; i++) {
     $('.letter-box').append(storage);
 }
 
-$('.letters').on('click', function clickLetter() {
-    swal('button work')
-})
+function guessing() {
+let placement = $('.placement')
+let word = $('<ul class="word"></ul>')
 
-
-$('.placement').append('<ul class="holder"></ul>')
 for (let i = 0; i < start.answer.length; i++) {
-    $('.holder').append('<li class="guess"></li>');
+    let guess = ('<li class="guess"></li>');
     if(start.answer[i] === '-') {
-    $('.guess').text() == '-';
+    guess.text() = '-';
     }
     else{
-    $('.guess').text() == '_';
+    guess.text() = '_';
     }
-luckyGuess.push($('.guess'))
-}
+    luckyGuess.push($('.guess'))
+    $(placement).append(word)
+    $(word).append(guess)
 
+}
+}
 
 // console.log(letter[0].valueOf())
 // console.log(hangmanInfo[0].hint.valueOf())
 
 
 
-//determine if player won or lose depending on letters and length
-function winOrLose() {
-    //if user has correct answer
-    if (hintAnswer == luckyGuess) {
-        //add 1 point for win
-        winScore += 1;
-        swal('Congratulations!! You Won!!');
-    }
-    else if (luckyGuess > 6) {
-        //add 1 point to loss
-        loseScore += 1;
-        swal('Awww you lose🙁...Better Luck Next Time');
-    }
+// //determine if player won or lose depending on letters and length
+// function winOrLose() {
+//     //if user has correct answer
+//     if (hintAnswer == luckyGuess) {
+//         //add 1 point for win
+//         winScore += 1;
+//         swal('Congratulations!! You Won!!');
+//     }
+//     else if (luckyGuess > 6) {
+//         //add 1 point to loss
+//         loseScore += 1;
+//         swal('Awww you lose🙁...Better Luck Next Time');
+//     }
 
-}
+// }
 
 console.log('1' + start.answer.length.valueOf())
 
@@ -112,7 +113,14 @@ $('.new-game').on('click', function newGame() {
     // console.log(start);
     //once hint is randomized place it inside of hint-display div
     $('.hint-text').text(start.hint)
-    //$('.placement').html(start.answer)
+    // $('.placement').text(start.answer)
+    return guessing()
+    
 })
+
+$('.letters').on('click', function clickLetter() {
+    swal('button work')
+})
+
 
 
