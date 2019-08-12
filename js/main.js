@@ -32,24 +32,26 @@ const hangmanInfo = [
     },
 ];
 
-let start = hangmanInfo[Math.floor(Math.random() * hangmanInfo.length)]
-$('.hint-text').text(start.hint)
 
-console.log(start.answer.length)
-let luckyGuesses = []
-let hintAnswer = $('.placement').text(start.answer)
-let lives = Number.parseFloat($('.lives').text())
+// console.log(start.answer.length)
+
+// let hintAnswer = $('.placement').text(start.answer)
+
 let winScore = Number.parseFloat($('.win-score').text())
 let loseScore = Number.parseFloat($('.lose-score').text())
 let alphaLetters = $('.letters')
 let numCorrect;
 let space;
+let luckyGuesses = []
 let guess;
+let lives = $('.lives')
 
 console.log(Number.parseFloat($('.win-score').text()))
 console.log(Number.parseFloat($('.lose-score').text()))
 console.log(Number.parseFloat($('.lives').text()))
 
+
+let start = hangmanInfo[Math.floor(Math.random() * hangmanInfo.length)]
 //create 26 divs to add to letter storage
 // let storage = $('<button class="letters"></button>').text('');
 for (let i = 0; i < letter.length; i++) {
@@ -61,7 +63,7 @@ function gamePlay() {
     let wordHolder = $('.placement')
     let uList = $('<ul class="word"></ul>')
 for(let i = 0; i < start.answer.length; i++) {
-    let guess = $('<li class="guess"></li>')
+    guess = $('<li class="guess"></li>')
     if(start.answer[i] === "-") {
         guess.html('-')
         space = 1
@@ -74,11 +76,10 @@ for(let i = 0; i < start.answer.length; i++) {
     uList.append(guess)
 }
 }
-gamePlay();
+
 
 function life() {
-    $('.lives')
-    if (lives > 6) {
+    if (lives < 1) {
         swal('Aww you lose...Better luck next time')
     }
     for(let i = 0; i < luckyGuesses.length; i++) {
@@ -94,12 +95,11 @@ function life() {
 
  }
 
-
-
-//test for letter buttons
+ //test for letter buttons
+ function clickLet (){
 $('.letters').on('click', function clickedLetter() {
-    // guess.html('.letters')
-    this.click(null)
+    let guess = $('.letters').html()
+    $('.letters').click(null)
     for(let i = 0; i < start.answer.length; i++) {
         if(start.answer[i] === guess) {
             luckyGuesses[i].html(guess)
@@ -116,18 +116,37 @@ $('.letters').on('click', function clickedLetter() {
         life()
     }
 })
+}
+
+ function play() {
+    let start = hangmanInfo[Math.floor(Math.random() * hangmanInfo.length)]
+    $('.hint-text').text(start.hint)
+    console.log(start.answer)
+    
+    clickLet();
+
+    luckyGuesses = []
+    lives = Number.parseFloat($('.lives').text())
+    numCorrect = 0
+    space = 0
+    gamePlay()
+    life()
+    carMove()
+ }
+ play()
+
+
+
+
 
 //on click of new game button
 $('.new-game').on('click', function newGame() {
     //randomize hints and words
     let start = hangmanInfo[Math.floor(Math.random() * hangmanInfo.length)];
-    // console.log(start);
     //once hint is randomized place it inside of hint-display div
     $('.hint-text').text(start.hint)
-    // $('.placement').text(start.answer)
     return gamePlay()
-    console.log(start.answer)
-    console.log(start.hint)
+    
 })
 
 
