@@ -168,11 +168,11 @@ h4 {
 
 .placement {
     display: block;
-    font-size: 15px;
+    font-size: 25px;
     text-align: center;
     line-height: 3em;
     color: black;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .letters {

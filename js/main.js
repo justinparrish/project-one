@@ -36,17 +36,19 @@ let start = hangmanInfo[Math.floor(Math.random() * hangmanInfo.length)]
 $('.hint-text').text(start.hint)
 
 console.log(start.answer.length)
-let luckyGuess = []
+let luckyGuesses = []
 let hintAnswer = $('.placement').text(start.answer)
 let lives = Number.parseFloat($('.lives').text())
 let winScore = Number.parseFloat($('.win-score').text())
 let loseScore = Number.parseFloat($('.lose-score').text())
-let alphaKeys = $('.letters')
-let numberOfClicks = 0
+let alphaLetters = $('.letters')
+let numCorrect;
+let space;
+let guess;
+
 console.log(Number.parseFloat($('.win-score').text()))
 console.log(Number.parseFloat($('.lose-score').text()))
 console.log(Number.parseFloat($('.lives').text()))
-
 
 //create 26 divs to add to letter storage
 // let storage = $('<button class="letters"></button>').text('');
@@ -55,42 +57,64 @@ for (let i = 0; i < letter.length; i++) {
     $('.letter-box').append(storage);
 }
 
-console.log(Number.parseFloat($('.win-score').text()));
-console.log(Number.parseFloat($('.lose-score').text()));
-console.log(Number.parseFloat($('.lives').text()));
-
+function gamePlay() {
+    let wordHolder = $('.placement')
+    let uList = $('<ul class="word"></ul>')
 for(let i = 0; i < start.answer.length; i++) {
-    start.answer[i] = '_';
-    
-}
-
-
-
-
-console.log(letter[0].valueOf())
-console.log(hangmanInfo[0].hint.valueOf())
-
-
-
-//determine if player won or lose depending on letters and length
-function winOrLose() {
-        //if user has correct answer
-    if( luckyGuess == hintAnswer) {
-        //add 1 point for win
-        winScore + 1;
-        swal('Congratulations!! You Won!!');
+    let guess = $('<li class="guess"></li>')
+    if(start.answer[i] === "-") {
+        guess.html('-')
+        space = 1
     }
-    else if(luckyGuess > 6){
-        //add 1 point to loss
-        loseScore + 1;
-        swal('Awww you lose🙁...Better Luck Next Time');
-    }     
-
+    else {
+        guess.html('_')
+    }
+    luckyGuesses.push(guess)
+    wordHolder.append(uList)
+    uList.append(guess)
 }
+}
+gamePlay();
+
+function life() {
+    $('.lives')
+    if (lives > 6) {
+        swal('Aww you lose...Better luck next time')
+    }
+    for(let i = 0; i < luckyGuesses.length; i++) {
+        if (numCorrect + space === luckyGuesses.length) {
+            swal('Horaay! You saved Chester')
+        }
+    }
+}
+
+ function carMove() {
+    let drive = Number.parseFloat($('.car').css('left')) - 42.5
+    drive;
+
+ }
+
+
 
 //test for letter buttons
 $('.letters').on('click', function clickedLetter() {
-    swal('letter clicked')
+    // guess.html('.letters')
+    this.click(null)
+    for(let i = 0; i < start.answer.length; i++) {
+        if(start.answer[i] === guess) {
+            luckyGuesses[i].html(guess)
+            numCorrect += 1
+        }
+    }
+    let j = (start.answer.indexOf(guess))
+    if (j === -1) {
+        lives -= 1
+        life()
+        carMove()
+    }
+    else {
+        life()
+    }
 })
 
 //on click of new game button
@@ -101,18 +125,14 @@ $('.new-game').on('click', function newGame() {
     //once hint is randomized place it inside of hint-display div
     $('.hint-text').text(start.hint)
     // $('.placement').text(start.answer)
-    return guessing()
-    
+    return gamePlay()
+    console.log(start.answer)
+    console.log(start.hint)
 })
+
 
 
 //hint button on click function
 $('.hint').on('click', function hintbutton() {
     (swal('Think hard about movies in the 80s, 90s, and 2000s'));  
 });
-
-
-
-
-
-
