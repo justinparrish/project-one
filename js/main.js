@@ -35,8 +35,8 @@ const hangmanInfo = [
 
 
 
-let winScore = Number.parseFloat(document.querySelector('.win-score').innerText)
-let loseScore = Number.parseFloat(document.querySelector('.lose-score').innerText)
+let winScore = Number.parseFloat($('.win-score').text())
+let loseScore = Number.parseFloat($('.lose-score').text())
 let alphaLetters = $('.letters')
 let numCorrect;
 let space;
@@ -50,7 +50,7 @@ console.log(winScore)
 let start = hangmanInfo[Math.floor(Math.random() * hangmanInfo.length)]
 
 //create 26 divs to add to letter storage
-function letters() {
+const letters = () => {
     let storage = $('.letter-storage')
     let listedAlpha = $('<ul class="alpabet"></ul>')
 
@@ -58,7 +58,24 @@ function letters() {
         let letterElem = $('<button id="letters"></button>')
         $(letterElem).html(letter[i])
         $(letterElem).click((evnt) => {
-            letterGuessed(letterElem[i])
+            let guess = $(letterElem).html()
+            $(letterElem).attr('class', 'active')
+            $(letterElem).click(null)
+            for(let i = 0; i < start.answer.length; i++) {
+                if(start.answer[i] === guess) {
+                    luckyGuesses[i].html(guess)
+                    numCorrect += 1
+                }
+            }
+            let j = (start.answer.indexOf(guess))
+            if (j === -1) {
+                lives -= 1
+                life()
+                carMove()
+            }
+            else {
+                life()
+            }
         })
         $(storage).append(listedAlpha)
         $(listedAlpha).append(letterElem)
@@ -66,7 +83,7 @@ function letters() {
 }
 
 //guess lines
-function gamePlay() {
+const gamePlay = () => {
     let wordHolder = $('.placement')
     let word = $('<ul class="word"></ul>')
     for (let i = 0; i < start.answer.length; i++) {
@@ -86,7 +103,7 @@ function gamePlay() {
 }
 
 //life tracker
-function life() {
+const life = () => {
     myLives.html(lives)
     if (lives < 1) {
         swal('Aww you lose...Better luck next time')
@@ -99,38 +116,38 @@ function life() {
 }
 
 //car animaation
-function carMove() {
+const carMove = () => {
     let drive = Number.parseFloat($('.car').css('left')) - 42.5
     drive;
 
 }
 
 // //test for letter buttons
-function letterGuessed() {
-    $('#letters').on('click', function () {
-        let guess = $('#letters').html()
+// function letterGuessed() {
+//     $('#letters').on('click', function () {
+//         let guess = $('#letters').html()
 
-        $('#letters').click(null)
-        for (let i = 0; i < start.answer.length; i++) {
-            if (start.answer[i] === guess) {
-                luckyGuesses[i].html(guess)
-                numCorrect += 1
-            }
-        }
-        let j = (start.answer.indexOf(guess))
-        if (j === -1) {
-            lives -= 1
-            life()
-            carMove()
-        }
-        else {
-            life()
-        }
-    })
-}
+//         $('#letters').click(null)
+//         for (let i = 0; i < start.answer.length; i++) {
+//             if (start.answer[i] === guess) {
+//                 luckyGuesses[i].html(guess)
+//                 numCorrect += 1
+//             }
+//         }
+//         let j = (start.answer.indexOf(guess))
+//         if (j === -1) {
+//             lives -= 1
+//             life()
+//             carMove()
+//         }
+//         else {
+//             life()
+//         }
+//     })
+// }
 
 //start of game
-function play() {
+const play = () => {
     start;
     $('.hint-text').text(start.hint)
     letters()
@@ -143,6 +160,7 @@ function play() {
     gamePlay()
     life()
     carMove()
+    console.log(luckyGuesses)
 }
 play()
 
