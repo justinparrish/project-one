@@ -8,11 +8,11 @@ const hangmanInfo = [
     },
     {
         hint: '"Did you rub your balls on my drums."',
-        answer: 'STEP BROTHERS'
+        answer: 'STEPBROTHERS'
     },
     {
         hint: '"Aw, man, I shot Marvin in the face..."',
-        answer: 'PULP FICTION'
+        answer: 'PULPFICTION'
     },
     {
         hint: '"I am McLovin"',
@@ -28,7 +28,7 @@ const hangmanInfo = [
     },
     {
         hint: '"Don\'t you ever touch a black man\'s radio, boy! You can do that in China but you can get your 🤬 killed out here, man."',
-        answer: 'RUSH HOUR'
+        answer: 'RUSHHOUR'
     },
 ];
 
@@ -52,7 +52,7 @@ let start = hangmanInfo[Math.floor(Math.random() * hangmanInfo.length)]
 //create 26 divs to add to letter storage
 const letters = () => {
     let storage = $('.letter-storage')
-    let listedAlpha = $('<ul class="alpabet"></ul>')
+    let listedAlpha = $('<ul class="alphabet"></ul>')
 
     for (let i = 0; i < letter.length; i++) {
         let letterElem = $('<button id="letters"></button>')
@@ -119,6 +119,7 @@ const life = () => {
 const carMove = () => {
     
     let drive = Number.parseFloat($('.car').css('left')) - 42.5
+    console.log('VROOM VROOM')
     
 
 }
