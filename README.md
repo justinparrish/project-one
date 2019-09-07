@@ -5,6 +5,7 @@ For my first project, I decided to create a redesigned hangman named "Save Chest
 
 ## Links
 [Game Link](https://justinparrish.github.io/project-one/)
+
 [Project Board](https://github.com/justinparrish/project-one/projects/1)
 
 ## Technologies Used
@@ -15,7 +16,7 @@ For my first project, I decided to create a redesigned hangman named "Save Chest
 * Figma(Wireframe)
 * VS Code(Text editor)
 
-# Wireframes
+## Wireframes
 ![wifreframe-sketch](images/wireframe.jpeg)
 ![wireframe](images/figma.png)
 
