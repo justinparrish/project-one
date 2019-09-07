@@ -85,7 +85,7 @@ const letters = () => {
 //guess lines
 const gamePlay = () => {
     let wordHolder = $('.placement')
-    let word = $('<ul class="word"></ul>')
+    let word = $('<ul id="word"></ul>')
     for (let i = 0; i < start.answer.length; i++) {
         guess = $('<li class="guess"></li>')
         if (start.answer[i] === "-") {
@@ -117,34 +117,11 @@ const life = () => {
 
 //car animaation
 const carMove = () => {
+    
     let drive = Number.parseFloat($('.car').css('left')) - 42.5
-    drive;
+    
 
 }
-
-// //test for letter buttons
-// function letterGuessed() {
-//     $('#letters').on('click', function () {
-//         let guess = $('#letters').html()
-
-//         $('#letters').click(null)
-//         for (let i = 0; i < start.answer.length; i++) {
-//             if (start.answer[i] === guess) {
-//                 luckyGuesses[i].html(guess)
-//                 numCorrect += 1
-//             }
-//         }
-//         let j = (start.answer.indexOf(guess))
-//         if (j === -1) {
-//             lives -= 1
-//             life()
-//             carMove()
-//         }
-//         else {
-//             life()
-//         }
-//     })
-// }
 
 //start of game
 const play = () => {
@@ -169,12 +146,12 @@ play()
 
 
 //on click of new game button
-$('.new-game').on('click', function newGame() {
-    $('.word').parent().remove()
-    $('.alphabet').parent().remove()
-    return gamePlay()
+// $('.new-game').on('click', function newGame() {
+//     $('.word').remove()
+//     $('.alphabet').remove()
+//     play()
 
-})
+// })
 
 
 
