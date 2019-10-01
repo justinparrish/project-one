@@ -1,6 +1,5 @@
 console.log('Please Save The Dog!')
 //create variables letters, words, and hints for words
-let letter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 const hangmanInfo = [
     {
         hint: '"Playing with my money... is like playing with my emotions"',
@@ -47,7 +46,6 @@ let guess;
 let lives;
 let myLives = $('.lives')
 
-console.log(winScore)
 
 let start = hangmanInfo[Math.floor(Math.random() * hangmanInfo.length)]
 
@@ -56,7 +54,8 @@ const letters = () => {
     let storage = $('.letter-storage')
     let listedAlpha = $('<ul class="alphabet"></ul>')
 
-    for (let i = 0; i < letter.length; i++) {
+    for (let i = 1; i < 26; i++) {
+        i = i.toString()
         let letterElem = $('<button id="letters"></button>')
         $(letterElem).html(letter[i])
         $(letterElem).click((evnt) => {
@@ -73,9 +72,7 @@ const letters = () => {
             if (j === -1) {
                 lives -= 1
                 life()
-                carMove()
-
-                
+                carMove()   
             }
             else {
                 life()
@@ -144,9 +141,7 @@ const carMove = () => {
     else if(lives === 0) {
         $('.game-display').css({'background-image' : 'url(images/barking.gif)'})
         $('.car').css({'display': 'none'})
-        $('.dog').css({'display': 'none'})
-        
-
+        $('.dog').css({'display': 'none'})   
     } 
     console.log('VROOM VROOM')
 }
