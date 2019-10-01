@@ -35,9 +35,11 @@ const hangmanInfo = [
 
 
 
-let winScore = Number.parseFloat($('.win-score').text())
-let loseScore = Number.parseFloat($('.lose-score').text())
+let winScore = parseInt($('.win-score').html())
+let loseScore = parseInt($('.lose-score').html())
 let alphaLetters = $('.letters')
+let wins;
+let loses;
 let numCorrect;
 let space;
 let luckyGuesses = []
@@ -108,53 +110,45 @@ const gamePlay = () => {
 const life = () => {
     myLives.html(lives)
     if (lives < 1) {
-        swal('Aww you lose...Better luck next time')
-        loseScore -= 1
-        
+        swal('Aww you lose...Better luck next time') 
+        $('.lose-score').html(loseScore += 1)
     }
     for (let i = 0; i < luckyGuesses.length; i++) {
         if (numCorrect + space === luckyGuesses.length) {
-            winScore += 1
             swal('Horaay! You saved Chester')
+            $('.win-score').html(winScore += 1)
         }
     }
 }
 
 //car animaation
 const carMove = () => {
-    let car = $('.car')
     if(lives === 6) {
-        car.css({'left' : '435px'})
+        $('.car').css({'left' : '435px'})
     }
     else if(lives === 5) {
-        car.css({'left' : '385px'})
+        $('.car').css({'left' : '385px'})
     } 
     else if(lives === 4) {
-        car.css({'left' : '336px'})
+        $('.car').css({'left' : '336px'})
     } 
     else if(lives === 3) {
-        car.css({'left' : '288px'})
+        $('.car').css({'left' : '288px'})
     } 
     else if(lives === 2) {
-        car.css({'left' : '235px'})
+        $('.car').css({'left' : '235px'})
     } 
     else if(lives === 1) {
-        car.css({'left' : '200px'})
+        $('.car').css({'left' : '210px'})
     } 
     else if(lives === 0) {
-        car.css({'left' : '135px'})
         $('.game-display').css({'background-image' : 'url(images/barking.gif)'})
+        $('.car').css({'display': 'none'})
+        $('.dog').css({'display': 'none'})
         
-    } 
-    
-    console.log('VROOM VROOM')
-    
-    
 
-}
-let car = $('.car')
-if(lives === 6) {
-    car.css({'left' : '600px'})
+    } 
+    console.log('VROOM VROOM')
 }
 
 
@@ -175,19 +169,6 @@ const play = () => {
 }
 play()
 carMove()
-
-
-
-
-//on click of new game button
-// $('.new-game').on('click', function newGame() {
-//     $('.word').remove()
-//     $('.alphabet').remove()
-//     play()
-
-// })
-
-
 
 //hint button on click function
 $('.hint').on('click', function hintbutton() {
