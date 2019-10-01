@@ -72,6 +72,8 @@ const letters = () => {
                 lives -= 1
                 life()
                 carMove()
+
+                
             }
             else {
                 life()
@@ -107,9 +109,12 @@ const life = () => {
     myLives.html(lives)
     if (lives < 1) {
         swal('Aww you lose...Better luck next time')
+        loseScore -= 1
+        
     }
     for (let i = 0; i < luckyGuesses.length; i++) {
         if (numCorrect + space === luckyGuesses.length) {
+            winScore += 1
             swal('Horaay! You saved Chester')
         }
     }
@@ -117,12 +122,41 @@ const life = () => {
 
 //car animaation
 const carMove = () => {
+    let car = $('.car')
+    if(lives === 6) {
+        car.css({'left' : '435px'})
+    }
+    else if(lives === 5) {
+        car.css({'left' : '385px'})
+    } 
+    else if(lives === 4) {
+        car.css({'left' : '336px'})
+    } 
+    else if(lives === 3) {
+        car.css({'left' : '288px'})
+    } 
+    else if(lives === 2) {
+        car.css({'left' : '235px'})
+    } 
+    else if(lives === 1) {
+        car.css({'left' : '200px'})
+    } 
+    else if(lives === 0) {
+        car.css({'left' : '135px'})
+        $('.game-display').css({'background-image' : 'url(images/barking.gif)'})
+        
+    } 
     
-    let drive = Number.parseFloat($('.car').css('left')) - 42.5
     console.log('VROOM VROOM')
+    
     
 
 }
+let car = $('.car')
+if(lives === 6) {
+    car.css({'left' : '600px'})
+}
+
 
 //start of game
 const play = () => {
@@ -137,11 +171,10 @@ const play = () => {
     
     gamePlay()
     life()
-    carMove()
     console.log(luckyGuesses)
 }
 play()
-
+carMove()
 
 
 

@@ -89,7 +89,7 @@ h4 {
 
 .car {
     position: absolute;
-    left: 435px;
+    /* left: 435px; */
     top: 150px;
     font-size: 144px;
     /* line-height: 197px; */
