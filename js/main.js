@@ -1,5 +1,6 @@
 console.log('Please Save The Dog!')
 //create variables letters, words, and hints for words
+let letter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 const hangmanInfo = [
     {
         hint: '"Playing with my money... is like playing with my emotions"',
@@ -54,7 +55,7 @@ const letters = () => {
     let storage = $('.letter-storage')
     let listedAlpha = $('<ul class="alphabet"></ul>')
 
-    for (let i = 1; i < 26; i++) {
+    for (let i = 0; i < 26; i++) {
         i = i.toString()
         let letterElem = $('<button id="letters"></button>')
         $(letterElem).html(letter[i])
